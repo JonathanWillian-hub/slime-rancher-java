@@ -1,0 +1,23 @@
+apply plugin: 'eclipse'
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+
+    group = 'com.slimefarm'
+    version = '1.0.0'
+
+    java {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    tasks.withType(JavaCompile).configureEach {
+        options.encoding = 'UTF-8'
+    }
+
+    repositories {
+        mavenCentral()
+    }
+}
+

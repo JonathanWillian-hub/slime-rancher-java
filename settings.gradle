@@ -1,0 +1,3 @@
+rootProject.name = 'slime-farm-iso'
+include 'core', 'lwjgl3'
+

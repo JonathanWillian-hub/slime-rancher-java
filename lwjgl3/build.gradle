@@ -1,0 +1,28 @@
+apply plugin: 'application'
+
+application {
+    mainClass = 'com.slimefarm.lwjgl3.Lwjgl3Launcher'
+}
+
+dependencies {
+    implementation project(':core')
+    implementation "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
+    implementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+}
+
+// Pasta de trabalho = assets/ (para carregar PNGs/sons opcionais)
+tasks.named('run') {
+    workingDir = rootProject.file('assets')
+    ignoreExitValue = true
+}
+
+// Jar executável com todas as dependências: gradlew lwjgl3:dist
+tasks.register('dist', Jar) {
+    archiveBaseName = 'slime-farm-iso'
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    manifest { attributes 'Main-Class': application.mainClass.get() }
+    dependsOn configurations.runtimeClasspath
+    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
