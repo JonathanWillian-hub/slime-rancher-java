@@ -52,12 +52,25 @@ O projeto é modularizado de forma estrita em Orientação a Objetos (uma classe
 ---
 
 ## 7. Como Executar
+
+### 🚀 Opção 1: Execução Direta (Sem precisar abrir a IDE)
+Ao descompactar o arquivo `.zip`:
+1. Dê dois cliques em **`JOGAR.exe`** ou **`JOGAR.bat`** na raiz do projeto.
+2. O jogo abrirá imediatamente utilizando o arquivo executável pré-compilado integrado!
+
+> **Alternativa standalone:** Dentro da pasta `executavel/`, você também encontra o `slime-farm-iso.jar` e um atalho `JOGAR.bat` direto.
+
+---
+
+### 💻 Opção 2: Linha de Comando / IDE (Gradle)
+Caso queira executar compilando o código-fonte via terminal:
 ```powershell
 # Executar no Desktop (LWJGL3)
 .\gradlew.bat lwjgl3:run
 
 # Compilar e executar testes automatizados JUnit 5
 .\gradlew.bat build
+```
 ```
 
 ### Controles no Jogo
